@@ -22,7 +22,6 @@ public class LaserController : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        //Debug.Log("LaserController.OnTriggerExit2D");
         if (collision.CompareTag("Boundary"))
         {
             Destroy(gameObject);
@@ -33,18 +32,19 @@ public class LaserController : MonoBehaviour
     {
         if (CollidesWithOwner(collision)) return;
         if (CollidesWithBoundary(collision)) return;
+        if (CollidesWithLaser(collision)) return;
 
         ApplyDamageIfApplicable(collision);
         Destroy(gameObject);
     }
 
+
     private void ApplyDamageIfApplicable(Collider2D collision)
     {
-        GameObject otherObject = collision.gameObject;
-        Health otherHealth = otherObject.GetComponent<Health>();
+        Health healthComponent = collision.GetComponent<Health>();
 
-        if (otherHealth != null)
-            otherHealth.TakeDamage(20);
+        if (healthComponent)
+            healthComponent.TakeDamage(20);
     }
 
     private bool CollidesWithBoundary(Collider2D collision)
@@ -55,6 +55,10 @@ public class LaserController : MonoBehaviour
     private bool CollidesWithOwner(Collider2D collision)
     {
         return this.owner == collision.gameObject;
+    }
+    private bool CollidesWithLaser(Collider2D collision)
+    {
+        return collision.CompareTag("Laser");
     }
 
     public void Fire(GameObject owner)

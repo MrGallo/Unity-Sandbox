@@ -7,8 +7,8 @@ public class HealthBarManager : MonoBehaviour
     //GameObject healthBar;
     float maxWidth;
 
-    //Color fullColor = new Color(0.682353f, 0.7176471f, 0.3843138f);
-    //Color emptyColor = Color.red;
+    Color fullColor = new Color(0.682353f, 0.7176471f, 0.3843138f);
+    Color emptyColor = Color.red;
 
     Health health;
 
@@ -28,6 +28,7 @@ public class HealthBarManager : MonoBehaviour
         float percent = health.GetPercent();
         scale.x = percent * maxWidth;
         gameObject.transform.localScale = scale;
+        gameObject.GetComponent<SpriteRenderer>().color = Color.Lerp(emptyColor, fullColor, percent);
     }
 
     public void SetWidth(float percent)
@@ -35,6 +36,5 @@ public class HealthBarManager : MonoBehaviour
         Debug.Log(percent);
         //Vector3 old = healthBar.transform.localScale;
         //healthBar.transform.localScale = new Vector3(maxWidth * percent, old.y, old.z);
-        //healthBar.GetComponent<SpriteRenderer>().color = Color.Lerp(emptyColor, fullColor, percent);
     }
 }
