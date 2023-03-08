@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7082828897798179386}
   - component: {fileID: 2583500149412626157}
   - component: {fileID: 2773702011223701949}
-  - component: {fileID: -3975173796503169131}
+  - component: {fileID: 8154254037656179478}
   - component: {fileID: 1138374599363773195}
   m_Layer: 0
   m_Name: laserPrefab
@@ -72,7 +72,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-3975173796503169131
+--- !u!114 &8154254037656179478
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -128,7 +128,7 @@ SpriteRenderer:
   m_Sprite: {fileID: 21300000, guid: c9cb1a416dd32b64190bd7eda19df0d7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
-  m_FlipY: 0
+  m_FlipY: 1
   m_DrawMode: 0
   m_Size: {x: 0.09, y: 0.33}
   m_AdaptiveModeThreshold: 0.5

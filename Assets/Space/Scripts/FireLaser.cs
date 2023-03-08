@@ -20,6 +20,7 @@ public class FireLaser : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             GameObject laser = Instantiate(laserPrefab, transform.position, Quaternion.identity);
+            laser.GetComponent<LaserManager>().SetOwner(gameObject);
             //laser.transform.Rotate(0f, 0f, i * 10f);
             Rigidbody2D rb = laser.GetComponent<Rigidbody2D>();
             rb.velocity = transform.up * LaserSpeed;

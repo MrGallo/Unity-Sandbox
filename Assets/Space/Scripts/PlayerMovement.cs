@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public float LateralThrusterForce = 10f;
     private Rigidbody2D rb;
     private float horizontalInput;
-    private float drag = 0.3f;
+    private float drag = 0.4f;
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            rb.AddForce(new Vector2(-rb.velocity.x * drag, 0));
+            rb.AddForce(new Vector2(-rb.velocity.x * (1 / drag), 0));
         }
         
         float clampedVelocity = Mathf.Clamp(rb.velocity.x, -MaxSpeed, MaxSpeed);
