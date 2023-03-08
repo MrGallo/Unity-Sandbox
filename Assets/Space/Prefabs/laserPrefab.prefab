@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7082828897798179386}
+  - component: {fileID: -2353529620991268113}
   - component: {fileID: 2583500149412626157}
   - component: {fileID: 2773702011223701949}
-  - component: {fileID: 8154254037656179478}
   - component: {fileID: 1138374599363773195}
   m_Layer: 0
   m_Name: laserPrefab
@@ -35,6 +35,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-2353529620991268113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2565343938091291174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06bc2182f689b7d4c991f7b339fd1722, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  laserSpeed: 15
 --- !u!70 &2583500149412626157
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -72,18 +85,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &8154254037656179478
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2565343938091291174}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b24a340d4be7def4aa0406b155629c07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &1138374599363773195
 SpriteRenderer:
   m_ObjectHideFlags: 0

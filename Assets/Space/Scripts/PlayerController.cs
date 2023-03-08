@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     public float MaxSpeed = 5.0f;
     public float LateralThrusterForce = 10f;
@@ -10,15 +10,23 @@ public class PlayerMovement : MonoBehaviour
     private float horizontalInput;
     private float drag = 0.4f;
 
+    private LaserSystem laserSystem;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        laserSystem = GetComponent<LaserSystem>();
     }
 
     private void Update()
     {
         horizontalInput = Input.GetAxis("Horizontal");
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            laserSystem.Fire();
+        }
     }
 
     void FixedUpdate()
