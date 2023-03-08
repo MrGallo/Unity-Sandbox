@@ -31,32 +31,35 @@ public class LaserController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Boundary"))
-            return;
+        if (CollidesWithOwner(collision)) return;
+        if (CollidesWithBoundary(collision)) return;
 
-        if (CollisionGameObjectIsOwner(collision))
-            return;
+        ApplyDamageIfApplicable(collision);
+        Destroy(gameObject);
+    }
 
+    private void ApplyDamageIfApplicable(Collider2D collision)
+    {
         GameObject otherObject = collision.gameObject;
         Health otherHealth = otherObject.GetComponent<Health>();
 
         if (otherHealth != null)
-        {
             otherHealth.TakeDamage(20);
-        }
-        Destroy(gameObject);
     }
 
-    private bool CollisionGameObjectIsOwner(Collider2D collision)
+    private bool CollidesWithBoundary(Collider2D collision)
     {
-        return gameObject.GetComponent<LaserController>().GetOwner() == collision.gameObject;
+        return collision.CompareTag("Boundary");
+    }
+
+    private bool CollidesWithOwner(Collider2D collision)
+    {
+        return this.owner == collision.gameObject;
     }
 
     public void Fire(GameObject owner)
     {
-        //Debug.Log("LaserController.Fire");
         this.owner = owner;
-        //Debug.Log($"Owner: {this.owner}");
         gameObject.transform.rotation = this.owner.transform.rotation;
         Rigidbody2D rb = gameObject.GetComponent<Rigidbody2D>();
         rb.velocity = transform.up * laserSpeed;
